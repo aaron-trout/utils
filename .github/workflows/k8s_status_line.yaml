@@ -17,7 +17,7 @@ jobs:
       - name: Setup Go environment
         uses: actions/setup-go@v2
         with:
-          go-version: 1.16.5
+          go-version: 1.16.6
 
       - name: build
         run: GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build k8s_status_line.go
