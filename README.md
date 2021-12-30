@@ -45,3 +45,15 @@ Only 9ms! That's a 236ms saving compared with the `kubectl` + `jq` version!
 
 Find the latest GitHub actions build and download the binary for your platform:
 https://github.com/aaron-trout/utils/actions/workflows/k8s_status_line.yaml?query=branch%3Amaster
+
+## pam_patch.py
+
+(For MacOS only)
+
+I like to use TouchID for `sudo` authentication, but every time MacOS does an update,
+it resets the contents of `/etc/pam.d/sudo`! This script can be added to your
+`.bashrc` or `.zshrc` e.t.c. and will prompt you if changes are required. It will also
+allow you to automatically update the file if run as root with `--patch`.
+
+Just download the file (or clone this repo) somewhere and read the docstring at the top
+of the file.
