@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
+from collections import OrderedDict
 from pathlib import Path
 import sys
 
 PAM_FILE = Path('/etc/pam.d/sudo')
 PAM_MODULES_DIR = Path('/usr/lib/pam')
 
-REQUIRED_ENTRIES = {  # { line number: line contents }
-    1: 'auth       optional       /opt/homebrew/lib/pam/pam_reattach.so',
-    2: 'auth       sufficient     pam_tid.so',
-}
+# Entries must be ordered correctly (monotonic line numbers)
+REQUIRED_ENTRIES = OrderedDict(  # ( line number, line contents )
+    (1, 'auth       optional       /opt/homebrew/lib/pam/pam_reattach.so'),
+    (2, 'auth       sufficient     pam_tid.so'),
+)
 
 
 def pam_needs_patching(contents):
