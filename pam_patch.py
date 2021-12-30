@@ -7,6 +7,9 @@ such that TouchID can be used for sudo authentication.
 The pam_reattach module allows use of TouchID inside tmux, install it with:
 
     brew install fabianishere/personal/pam_reattach
+    
+Note: If you are using an Intel Mac, you'll also need to update REQUIRED_ENTRIES
+      with the correct path to pam_reattach.so
 
 The script will only detect if changes are required, unless the '--patch' flag
 is passed. Call it from your .bashrc/.zshrc with no args and it will let you
