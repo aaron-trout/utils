@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
 
+'''
+This script detects if there are missing entries in /etc/pam.d/sudo, as
+defined in REQUIRED_ENTRIES. By default it will add pam_reattach and pam_tid
+such that TouchID can be used for sudo authentication.
+
+The pam_reattach module allows use of TouchID inside tmux, install it with:
+
+    brew install fabianishere/personal/pam_reattach
+
+The script will only detect if changes are required, unless the '--patch' flag
+is passed. Call it from your .bashrc/.zshrc with no args and it will let you
+know if changes are required.
+
+Requires Python 3.6+ (tested on Python 3.9.9).
+'''
+
 from collections import OrderedDict
 from pathlib import Path
 import sys
