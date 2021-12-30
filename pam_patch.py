@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 '''
 This script detects if there are missing entries in /etc/pam.d/sudo, as
 defined in REQUIRED_ENTRIES. By default it will add pam_reattach and pam_tid
@@ -52,6 +51,7 @@ def print_indented(string, n=1):
 
 
 def print_changes(old, new):
+    print()
     print('Old contents:')
     print_indented(old)
     print()
