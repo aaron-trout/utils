@@ -50,10 +50,12 @@ https://github.com/aaron-trout/utils/actions/workflows/k8s_status_line.yaml?quer
 
 (For MacOS only)
 
-I like to use TouchID for `sudo` authentication, but every time MacOS does an update,
-it resets the contents of `/etc/pam.d/sudo`! This script can be added to your
-`.bashrc` or `.zshrc` e.t.c. and will prompt you if changes are required. It will also
-allow you to automatically update the file if run as root with `--patch`.
+This script is no longer required, since Apple provided a sudo_local file in
+Sonoma which allows custom entries to survive upgrades. There is even a
+template file which has the required entry for TouchID sudo.
 
-Just download the file (or clone this repo) somewhere and read the docstring at the top
-of the file.
+See:
+https://sixcolors.com/post/2023/08/in-macos-sonoma-touch-id-for-sudo-can-survive-updates/
+
+Note: if you use tmux, you may still want/need
+https://github.com/fabianishere/pam_reattach
